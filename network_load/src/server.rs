@@ -1,6 +1,7 @@
 use std::io::{Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::thread;
+use std::time::Instant;
 
 fn handle_client(mut stream: TcpStream) {
     let mut buffer = [0; 1024];
@@ -11,7 +12,10 @@ fn handle_client(mut stream: TcpStream) {
             } else {
                 let message = String::from_utf8_lossy(&buffer[0..size]);
                 println!("Received: {}", message);
-                stream.write_all(&buffer[0..size]).unwrap();
+
+                // Add a timestamp to the response and terminate with a newline character
+                let response = format!("Received: {} at {:?}\n", message, Instant::now());
+                stream.write_all(response.as_bytes()).unwrap();
                 true
             }
         }
@@ -39,4 +43,3 @@ fn main() {
         }
     }
 }
-
