@@ -1,3 +1,5 @@
+use std::io;
+
 struct AlwaysEqual;
 
 
@@ -12,43 +14,19 @@ fn main() {
     user1.email = String::from("john@another.com");
 
     let black = Color(244, 24, 30);
+    println!(" color value is {}", black.0);
 
-    let subject = AlwaysEqual;
+    let ip = IpAddrKind::V4;
 
-    // let width1 = 30;
-    // let height1 = 50;
+    // if ip == IpAddrKind::V4 {
+    //     println!("Ip Addr is V4");
+    // }
+    let machine_type = MachineType::active;
+}
 
-    let rect1 = Rectangle {
-        width: 30,
-        height: 50,
-    };
-
-    println!(
-        "The area of the rectangle is {} square pixels",
-        area(&rect1)
-        // area(width1, height1)
-    );
-
-    // println!("rect1 is {:?}", rect1);
-    println!("area of rect1 is {} pixels", rect1.area());
-
-    if rect1.width() {
-        println!("The rectangle has a nonzero width; it is {}", rect1.width);
-    }
-
-    let rect2 = Rectangle {
-        width: 10,
-        height: 40,
-    };
-    let rect3 = Rectangle {
-        width: 60,
-        height: 45,
-    };
-
-    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
-    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
-
-    
+enum IpAddrKind {
+    V4,
+    V6,
 }
 
 struct User {
