@@ -1,5 +1,7 @@
 # Data Structure and Algorithms with Rust !!!
 
+[Rust Programming Language](https://doc.rust-lang.org/book/)
+
 ```bash
 cargo new
 
