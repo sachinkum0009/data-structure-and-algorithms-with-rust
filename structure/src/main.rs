@@ -11,6 +11,9 @@ fn main() {
         sign_in_count: 1,
     };
 
+    user1.active = false;
+    user1.sign_in_count = 100;
+
     user1.email = String::from("john@another.com");
 
     let black = Color(244, 24, 30);
